@@ -1,32 +1,37 @@
 cabal-version:   3.4
-name:            tasty-report
+name:            tasty-documentation-test
 version:         0.0.1.0
 synopsis:
   A Tasty plugin that renders a personalised summary of your tests
 
--- description:
 license:         BSD-3-Clause
 license-file:    LICENSE
 author:          Théophile Choutri
 maintainer:      theophile@choutri.eu
 
--- copyright:
 category:        Testing
 build-type:      Simple
 extra-doc-files: CHANGELOG.md
-
--- extra-source-files:
 
 common warnings
   ghc-options: -Wall
 
 library
   import:           warnings
-  exposed-modules:  MyLib
+  exposed-modules:
+    Test.Tasty.DocumentationTest
+    Test.Tasty.DocumentationTest.Types
+    Test.Tasty.DocumentationTest.Internal
 
-  -- other-modules:
-  -- other-extensions:
-  build-depends:    base ^>=4.17.1.0
+  build-depends:
+      base ^>=4.17.1.0
+    , tasty
+    , filepath ==1.4.100.3
+    , exceptions
+    , containers
+    , text
+    , tasty-hunit
+    , prettyprinter
   hs-source-dirs:   src
   default-language: GHC2021
 
